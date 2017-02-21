@@ -1,8 +1,14 @@
-document.addEventListener('cat', function(e) {
-  console.log(e)
+var cart = 0;
+
+document.addEventListener('modifyCart', function(event) {
+  var type = event.detail.button.getAttribute('data-type');
+
+  cart = type === 'add' ? cart + 1 : (cart === 0 ? cart : cart - 1);
+
+  console.log('CART: ', cart);
 });
 
-document.dispatchEvent(new CustomEvent('cat', {
+document.dispatchEvent(new CustomEvent('otherEvent', {
   detail: {
     hazcheeseburger: true
   }
@@ -11,7 +17,7 @@ document.dispatchEvent(new CustomEvent('cat', {
 var buttons = document.querySelectorAll('button'), i = buttons.length;
 while (i--){
   addEvent(buttons[i], 'click', function() {
-    document.dispatchEvent(new CustomEvent('cat', {
+    document.dispatchEvent(new CustomEvent('modifyCart', {
       detail: {
         button: this
       }
