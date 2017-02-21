@@ -2,9 +2,7 @@ var cart = 0;
 
 document.addEventListener('modifyCart', function(event) {
   var type = event.detail.button.getAttribute('data-type');
-
   cart = type === 'add' ? cart + 1 : (cart === 0 ? cart : cart - 1);
-
   console.log('CART: ', cart);
 });
 
