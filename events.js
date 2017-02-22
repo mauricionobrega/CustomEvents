@@ -6,11 +6,11 @@ document.addEventListener('modifyCart', function(event) {
   console.log('CART: ', cart);
 });
 
-document.dispatchEvent(new CustomEvent('otherEvent', {
-  detail: {
-    hazcheeseburger: true
-  }
-}));
+// document.dispatchEvent(new CustomEvent('otherEvent', {
+//   detail: {
+//     hazcheeseburger: true
+//   }
+// }));
 
 var buttons = document.querySelectorAll('button'), i = buttons.length;
 while (i--){
